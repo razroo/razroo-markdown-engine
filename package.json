@@ -1,0 +1,21 @@
+{
+  "name": "@razroo/razroo-markdown-engine",
+  "version": "1.1.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razroo/razroo-markdown-engine.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/razroo"
+  },
+  "author": "Charlie Greenman <charlie@razroo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "micromatch": "^4.0.2",
+    "url": "^0.11.0",
+    "yargs": "^16.1.1"
+  }
+}
