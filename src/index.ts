@@ -59,7 +59,7 @@ async function replaceSnippets(fileAsArray: any) {
   });
 }
 
-exports.resolveMarkdownFile = function (inputFilePath, outputFilePath) {
+exports.resolveMarkdownFile = function (inputFilePath: any, outputFilePath: any) {
   return new Promise((resolve, reject) => {
     replaceSnippets(fs.readFileSync(inputFilePath, "utf8").split("\n"))
       .then((newFileArray) => {
