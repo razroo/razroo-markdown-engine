@@ -15,6 +15,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
   },
+  "files": ["lib/**/*"],
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
   "dependencies": {
