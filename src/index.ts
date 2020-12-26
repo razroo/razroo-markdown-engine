@@ -10,7 +10,7 @@ var path = require("path");
 const axios = a.create({
   headers: {'Authorization': `token ${process.env.GITHUB_TOKEN}`}
 })
-async function replaceSnippets(fileAsArray) {
+async function replaceSnippets(fileAsArray: any) {
   // glob matching pattern
   let match = micromatch(fileAsArray, ["*{{**}}*"]);
   let promises = [];
@@ -38,7 +38,7 @@ async function replaceSnippets(fileAsArray) {
       //   get the github raw content
       await axios
         .get(match[x])
-        .then(function (response) {
+        .then(function (response: any) {
           // handle success
           let fileArray = response.data.split("\n");
           let codeSnippet = fileArray.slice(lineNumbers[0] - 1, lineNumbers[1]);
@@ -47,7 +47,7 @@ async function replaceSnippets(fileAsArray) {
           fileAsArray[indexOfCode] = codeSnippet.join("\n");
           resolve(codeSnippet);
         })
-        .catch(function (error) {
+        .catch(function (error: any) {
           console.log(error);
           reject(error);
         });
