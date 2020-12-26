@@ -15,7 +15,7 @@ async function replaceSnippets(fileAsArray) {
   let match = micromatch(fileAsArray, ["*{{**}}*"]);
   let promises = [];
 
-  for (x in match) {
+  for (const x in match) {
     let promise = new Promise(async (resolve, reject) => {
       // remove the braces
       let indexOfCode = fileAsArray.indexOf(match[x]);

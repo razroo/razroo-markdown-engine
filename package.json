@@ -1,13 +1,17 @@
 {
   "name": "@razroo/razroo-markdown-engine",
   "version": "1.1.0",
-  "main": "index.js",
+  "main": "src/index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/razroo/razroo-markdown-engine.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/razroo"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
@@ -17,5 +21,9 @@
     "micromatch": "^4.0.2",
     "url": "^0.11.0",
     "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.16",
+    "typescript": "^4.1.3"
   }
 }

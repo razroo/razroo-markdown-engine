@@ -31,7 +31,7 @@ For instance:
 ```
 Sample content before. 
 
-{{ https://github.com/facebook/react/blob/ad6f3d5c55a79e8a44798aad36118e73de3a64f8/packages/create-subscription/index.js#L10-L12 }}
+{{ https://github.com/facebook/react/blob/ad6f3d5c55a79e8a44798aad36118e73de3a64f8/packages/create-subscription/index.ts#L10-L12 }}
 
 Sample content after.
 ```
