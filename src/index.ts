@@ -3,6 +3,7 @@ const micromatch = require('micromatch');
 const url = require('url');
 import axios from 'axios';
 import { readFileSync, writeFileSync } from 'fs';
+import { removeLsandHashtags } from "./modify-link/modify-link";
 
 const authenticatedAxios = axios.create({
   headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` },
@@ -24,13 +25,7 @@ async function replaceSnippets(fileAsArray: any) {
       match[x] = match[x].replace('github.com', 'raw.githubusercontent.com');
 
       //   get the line numbers
-      let lineNumbers = url.parse(match[x]).hash;
-
-      //   remove the Ls and #
-      lineNumbers = lineNumbers.replace('L', '');
-      lineNumbers = lineNumbers.replace('L', '');
-      lineNumbers = lineNumbers.replace('#', '');
-      lineNumbers = lineNumbers.split('-');
+      let lineNumbers = removeLsandHashtags(match[x]);
 
       //   get the github raw content
       await authenticatedAxios
