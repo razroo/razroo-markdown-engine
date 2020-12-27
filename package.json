@@ -12,8 +12,9 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
+    "watch": "tsc -w",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "eslint . --ext .ts"
   },
   "files": [
     "lib/**/*"
@@ -30,6 +31,10 @@
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.16",
+    "@types/yargs": "^15.0.12",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "eslint": "^7.16.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "ts-jest": "^26.4.4",
