@@ -2,10 +2,8 @@ require('dotenv').config()
 const micromatch = require("micromatch");
 const url = require("url");
 import axios from 'axios';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
-const argv = yargs(hideBin(process.argv)).argv;
 import {readFileSync, writeFileSync} from 'fs';
+
 const authenticatedAxios = axios.create({
   headers: {'Authorization': `token ${process.env.GITHUB_TOKEN}`}
 })
@@ -26,7 +24,7 @@ async function replaceSnippets(fileAsArray: any) {
       match[x] = match[x].replace("github.com", "raw.githubusercontent.com");
 
       //   get the line numbers
-      let lineNumbers = url.parse(awmatch[x]).hash;
+      let lineNumbers = url.parse(match[x]).hash;
 
       //   remove the Ls and #
       lineNumbers = lineNumbers.replace("L", "");
