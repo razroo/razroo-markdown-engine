@@ -37,7 +37,7 @@ async function replaceSnippets(fileAsArray: any) {
       //   get the github raw content
       await authenticatedAxios
         .get(match[x])
-        .then(function (response: any) {
+        .then((response: any) => {
           // handle success
           let fileArray = response.data.split("\n");
           let codeSnippet = fileArray.slice(lineNumbers[0] - 1, lineNumbers[1]);
@@ -46,7 +46,7 @@ async function replaceSnippets(fileAsArray: any) {
           fileAsArray[indexOfCode] = codeSnippet.join("\n");
           resolve(codeSnippet);
         })
-        .catch(function (error: any) {
+        .catch((error: any) => {
           console.log(error);
           reject(error);
         });
@@ -58,7 +58,7 @@ async function replaceSnippets(fileAsArray: any) {
   });
 }
 
-exports.resolveMarkdownFile = function (inputFilePath: any, outputFilePath: any) {
+exports.resolveMarkdownFile = (inputFilePath: any, outputFilePath: any) => {
   return new Promise((resolve, reject) => {
     replaceSnippets(readFileSync(inputFilePath, "utf8").split("\n"))
       .then((newFileArray) => {
