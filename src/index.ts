@@ -3,7 +3,7 @@ const micromatch = require('micromatch');
 const url = require('url');
 import axios from 'axios';
 import { readFileSync, writeFileSync } from 'fs';
-import { removeLsandHashtags } from "./modify-link/modify-link";
+import {modifyGithubLink, removeCurlyBraces, removeLsandHashtags} from "./modify-link/modify-link";
 
 const authenticatedAxios = axios.create({
   headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` },
@@ -17,12 +17,9 @@ async function replaceSnippets(fileAsArray: any) {
     const promise = new Promise(async (resolve, reject) => {
       // remove the braces
       const indexOfCode = fileAsArray.indexOf(match[x]);
-      match[x] = match[x].replace('{{ ', '');
-      match[x] = match[x].replace(' }}', '');
-
+      match[x] = removeCurlyBraces(match[x]);
       // we need to work with raw content from github
-      match[x] = match[x].replace('/blob', '');
-      match[x] = match[x].replace('github.com', 'raw.githubusercontent.com');
+      match[x] = modifyGithubLink(match[x]);
 
       //   get the line numbers
       let lineNumbers = removeLsandHashtags(match[x]);

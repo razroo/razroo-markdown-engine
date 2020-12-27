@@ -12,3 +12,11 @@ export function removeLsandHashtags(match: any) {
 
     return lineNumbers;
 }
+
+export function removeCurlyBraces(match: any) {
+  return match.replace('{{ ', '').replace(' }}', '');
+}
+
+export function modifyGithubLink(match: any) {
+  return match.replace('/blob', '').replace('github.com', 'raw.githubusercontent.com');
+}
