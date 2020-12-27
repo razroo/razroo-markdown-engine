@@ -2,6 +2,7 @@
   "name": "@razroo/razroo-markdown-engine",
   "version": "1.1.0",
   "main": "src/index.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/razroo/razroo-markdown-engine.git"
@@ -14,7 +15,9 @@
     "build": "tsc",
     "watch": "tsc -w",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "lib/**/*"
