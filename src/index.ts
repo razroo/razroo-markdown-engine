@@ -1,13 +1,12 @@
 require('dotenv').config()
 const micromatch = require("micromatch");
-const url = require("url");
-const a = require("axios");
-const yargs = require("yargs/yargs");
-const { hideBin } = require("yargs/helpers");
+const url = import("url");
+import axios from 'axios';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers'
 const argv = yargs(hideBin(process.argv)).argv;
-const fs = require("fs");
-var path = require("path");
-const axios = a.create({
+import {readFileSync, writeFileSync} from 'fs';
+const authenticatedAxios = axios.create({
   headers: {'Authorization': `token ${process.env.GITHUB_TOKEN}`}
 })
 async function replaceSnippets(fileAsArray: any) {
@@ -36,7 +35,7 @@ async function replaceSnippets(fileAsArray: any) {
       lineNumbers = lineNumbers.split("-");
 
       //   get the github raw content
-      await axios
+      await authenticatedAxios
         .get(match[x])
         .then(function (response: any) {
           // handle success
@@ -61,9 +60,9 @@ async function replaceSnippets(fileAsArray: any) {
 
 exports.resolveMarkdownFile = function (inputFilePath: any, outputFilePath: any) {
   return new Promise((resolve, reject) => {
-    replaceSnippets(fs.readFileSync(inputFilePath, "utf8").split("\n"))
+    replaceSnippets(readFileSync(inputFilePath, "utf8").split("\n"))
       .then((newFileArray) => {
-        fs.writeFileSync(outputFilePath, newFileArray.join("\n"));
+        writeFileSync(outputFilePath, newFileArray.join("\n"));
         resolve(outputFilePath);
       })
       .catch((error) => {
