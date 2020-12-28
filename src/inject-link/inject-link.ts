@@ -1,4 +1,5 @@
 const url = require('url');
+const micromatch = require('micromatch');
 
 export function removeLsandHashtags(match: any) {
     //   get the line numbers
@@ -11,6 +12,10 @@ export function removeLsandHashtags(match: any) {
     lineNumbers = lineNumbers.split('-');
 
     return lineNumbers;
+}
+
+export function matchInjectedLinks(fileAsArray: string): string[] {
+  return micromatch(fileAsArray, ['*{{**}}*']);
 }
 
 export function removeCurlyBraces(match: any) {

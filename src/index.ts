@@ -3,14 +3,14 @@ const micromatch = require('micromatch');
 const url = require('url');
 import axios from 'axios';
 import { readFileSync, writeFileSync } from 'fs';
-import {modifyGithubLink, removeCurlyBraces, removeLsandHashtags} from "./modify-link/modify-link";
+import {matchInjectedLinks, modifyGithubLink, removeCurlyBraces, removeLsandHashtags} from "./inject-link/inject-link";
 
 const authenticatedAxios = axios.create({
   headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` },
 });
-async function replaceSnippets(fileAsArray: any) {
+async function replaceSnippets(fileAsArray: string) {
   // glob matching pattern
-  let match = micromatch(fileAsArray, ['*{{**}}*']);
+  let match = matchInjectedLinks(fileAsArray);
   let promises = [];
 
   for (const x in match) {
