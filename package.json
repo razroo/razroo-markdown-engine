@@ -30,6 +30,7 @@
     "micromatch": "^4.0.2",
     "remark": "^13.0.0",
     "remark-directive": "^1.0.1",
+    "remark-variables": "^1.4.9",
     "url": "^0.11.0",
     "yargs": "^16.1.1"
   },
