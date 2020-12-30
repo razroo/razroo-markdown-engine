@@ -1,15 +1,22 @@
+import remark = require("remark");
+import embeddedCodeSnippets from "@razroo/razroo-remark-embed-code";
 require('dotenv').config();
+
 import { readFileSync, writeFileSync } from 'fs';
 
-exports.resolveMarkdownFile = (inputFilePath: any, outputFilePath: any) => {
+exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string) => {
+  let markdownAsString = readFileSync(fileToBeBuilt).toString();
+
   return new Promise((resolve, reject) => {
-    replaceSnippets(readFileSync(inputFilePath, 'utf8').split('\n'))
-      .then((newFileArray) => {
-        writeFileSync(outputFilePath, newFileArray.join('\n'));
-        resolve(outputFilePath);
+    remark()
+      .use(embeddedCodeSnippets, {
+        github: 'https://github.com',
+        githubApi: 'https://api.github.com',
+        username: 'razroo',
+        token: `${process.env.GITHUB_TOKEN}`,
       })
-      .catch((error) => {
-        reject(error);
+      .process(markdownAsString, (err, file) => {
+        resolve(writeFileSync(outputFilePath, file.contents));
       });
   });
 };
