@@ -16,7 +16,8 @@ exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string) =>
         token: `${process.env.GITHUB_TOKEN}`,
       })
       .process(markdownAsString, (err, file) => {
-        resolve(writeFileSync(outputFilePath, file.contents));
+        resolve([writeFileSync(outputFilePath, file.contents), console.log(outputFilePath)]);
+        reject(err)
       });
   });
 };

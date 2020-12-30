@@ -1,6 +1,6 @@
 {
   "name": "@razroo/razroo-markdown-engine",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
@@ -33,10 +33,10 @@
     "remark-variables": "^1.4.9",
     "url": "^0.11.0",
     "vfile-reporter": "^6.0.2",
-    "yargs": "^16.1.1"
+    "yargs": "^16.1.1",
+    "@razroo/razroo-remark-embed-code": "^1.0.2"
   },
   "devDependencies": {
-    "@razroo/razroo-remark-embed-code": "^1.0.2",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.16",
     "@types/yargs": "^15.0.12",
