@@ -7,9 +7,9 @@ import { readFileSync, writeFileSync } from 'fs';
 exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string) => {
   let markdownAsString = readFileSync(fileToBeBuilt).toString();
 
-  return new Promise((resolve, reject) => {
-    remark()
-      .use(embeddedCodeSnippets, {
+  return new Promise(async(resolve, reject) => {
+    return remark()
+      .use(await embeddedCodeSnippets, {
         github: 'https://github.com',
         githubApi: 'https://api.github.com',
         username: 'razroo',
