@@ -25,16 +25,18 @@
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
   "dependencies": {
+    "@razroo/razroo-remark-embed-code": "^1.0.2",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "micromatch": "^4.0.2",
-    "remark": "^13.0.0",
-    "remark-directive": "^1.0.1",
+    "remark": "^11.0.0",
+    "remark-parse": "^9.0.0",
+    "remark-stringify": "^9.0.1",
     "remark-variables": "^1.4.9",
+    "to-vfile": "^6.1.0",
     "url": "^0.11.0",
     "vfile-reporter": "^6.0.2",
-    "yargs": "^16.1.1",
-    "@razroo/razroo-remark-embed-code": "^1.0.2"
+    "yargs": "^16.1.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
