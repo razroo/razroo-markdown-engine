@@ -26,7 +26,6 @@
   "license": "MIT",
   "dependencies": {
     "@razroo/razroo-remark-embed-code": "^1.0.2",
-    "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "micromatch": "^4.0.2",
     "remark": "^11.0.0",

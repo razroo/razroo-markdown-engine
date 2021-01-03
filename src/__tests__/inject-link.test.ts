@@ -1,7 +1,8 @@
 import {readFileSync, writeFileSync} from "fs";
 import remark = require("remark");
 import embeddedCodeSnippets from "@razroo/razroo-remark-embed-code";
-const mkdirp = require('mkdirp')
+const mkdirp = require('mkdirp');
+require('dotenv').config();
 
 test('Testing remark parsing', () => {
   const fileToBeBuilt = `src/__tests__/fixtures/inject-link.md`;
@@ -16,9 +17,9 @@ test('Testing remark parsing', () => {
 function testCodeInjection(fileToBeBuilt: string, outputFilePath: string) {
   let markdownAsString = readFileSync(fileToBeBuilt).toString();
 
-  return new Promise((resolve, reject) => {
+  return new Promise(async(resolve, reject) => {
     return remark()
-      .use(embeddedCodeSnippets, {
+      .use(await embeddedCodeSnippets, {
         github: 'https://github.com',
         githubApi: 'https://api.github.com',
         username: 'razroo',
