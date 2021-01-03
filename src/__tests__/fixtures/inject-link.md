@@ -6,4 +6,8 @@ Sample text before
 
 this particular {{ var.section }} does not apply
 
+```
+{{ test of code }}
+```
+
 sample text after
