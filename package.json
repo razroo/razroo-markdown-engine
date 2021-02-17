@@ -25,6 +25,7 @@
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
   "dependencies": {
+    "@karuga/remark-include": "^0.5.1",
     "@razroo/razroo-remark-embed-code": "^1.0.2",
     "dotenv": "^8.2.0",
     "micromatch": "^4.0.2",
