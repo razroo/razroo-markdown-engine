@@ -2,8 +2,8 @@ import remark = require("remark");
 import embeddedCodeSnippets from "@razroo/razroo-remark-embed-code";
 const variables = require('remark-variables');
 require('dotenv').config();
-
 import { readFileSync, writeFileSync } from 'fs';
+import html = require('remark-html');
 
 exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, data: any) => {
   let markdownAsString = readFileSync(fileToBeBuilt).toString();
@@ -17,6 +17,7 @@ exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, da
         username: 'razroo',
         token: `${process.env.GITHUB_TOKEN}`,
       })
+      .use(html)
       .data('var', data)
       .process(markdownAsString, (err, file) => {
         resolve([writeFileSync(outputFilePath, file.contents), console.log(outputFilePath)]);
