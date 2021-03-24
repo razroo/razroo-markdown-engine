@@ -1,6 +1,7 @@
 import {readFileSync, writeFileSync} from "fs";
 import remark = require("remark");
 import embeddedCodeSnippets from "@razroo/razroo-remark-embed-code";
+import removeTitleTags from '@razroo/razroo-remark-netlify';
 const mkdirp = require('mkdirp');
 const variables = require('remark-variables');
 require('dotenv').config();
@@ -23,6 +24,7 @@ function testCodeInjection(fileToBeBuilt: string, outputFilePath: string, data: 
 
   return new Promise(async(resolve, reject) => {
     return remark()
+      .use(removeTitleTags)
       .use(variables)
       .use(await embeddedCodeSnippets, {
         github: 'https://github.com',
