@@ -4,12 +4,14 @@ const variables = require('remark-variables');
 require('dotenv').config();
 import { readFileSync, writeFileSync } from 'fs';
 import html = require('remark-html');
+import removeTitleTagsPlugin from '@razroo/razroo-remark-netlify';
 
 exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, data: any) => {
   let markdownAsString = readFileSync(fileToBeBuilt).toString();
 
   return new Promise(async(resolve, reject) => {
     return remark()
+      .use(removeTitleTagsPlugin)
       .use(variables)
       .use(await embeddedCodeSnippets, {
         github: 'https://github.com',
