@@ -4,7 +4,6 @@ const variables = require('remark-variables');
 require('dotenv').config();
 import { readFileSync, writeFileSync } from 'fs';
 import html = require('remark-html');
-import prism = require('remark-prism');
 import removeTitleTagsPlugin from '@razroo/razroo-remark-netlify';
 
 exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, data: any) => {
@@ -20,7 +19,7 @@ exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, da
         username: 'razroo',
         token: `${process.env.GITHUB_TOKEN}`,
       })
-      .use(prism)
+      .use(require('remark-prism'))
       .use(html)
       .data('var', data)
       .process(markdownAsString, (err, file) => {
