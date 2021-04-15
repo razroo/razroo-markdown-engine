@@ -5,6 +5,7 @@ require('dotenv').config();
 import { readFileSync, writeFileSync } from 'fs';
 import html = require('remark-html');
 import removeTitleTagsPlugin from '@razroo/razroo-remark-netlify';
+const headings = require('remark-autolink-headings');
 
 exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, data: any) => {
   let markdownAsString = readFileSync(fileToBeBuilt).toString();
@@ -19,6 +20,7 @@ exports.resolveMarkdownFile = (fileToBeBuilt: string, outputFilePath: string, da
         username: 'razroo',
         token: `${process.env.GITHUB_TOKEN}`,
       })
+      .use(headings)
       .use(require('remark-prism'))
       .use(html)
       .data('var', data)
