@@ -47,4 +47,20 @@ export * from './src/createSubscription';
 Sample content after.
 ``` 
 
+### Variables ###
+```
+In this {{format}}
+```
+
+will be 
+```
+In this chapter
+```
+For book builds, and
+```
+In this article
+```
+for article builds.
+
+
 
