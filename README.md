@@ -47,4 +47,24 @@ export * from './src/createSubscription';
 Sample content after.
 ``` 
 
+### Variables ###
+```
+In this {{format}}
+```
+
+will be 
+```
+In this chapter
+```
+For book builds, and
+```
+In this article
+```
+for article builds.
+
+## Razroo Markdown Engine is an internal NPM repo 
+
+Razroo uses Github Packages for internal NPM packages. In order to use Razroo's Github Packages/internal NPm repos you will have to run `npm login` and generate a personal access token. This will hook up your github username to the Razroo npm repo. If you have access to the respective npm repo, you 
+
+https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token
 
