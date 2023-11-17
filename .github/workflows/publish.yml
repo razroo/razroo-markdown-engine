@@ -11,8 +11,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '18.x'
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Set GitHub token
+        run: |
+          # echo "{ \"Parameters\": { \"GITHUBTOKEN\": \"${{ secrets.GitHubToken }}\" }}" >> .env.json
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc      
       - name: Install dependencies and build 🔧
         run: npm ci && npm run build
       - name: Publish package on NPM 📦
