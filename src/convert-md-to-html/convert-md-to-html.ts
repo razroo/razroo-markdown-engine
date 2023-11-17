@@ -6,7 +6,6 @@ import slug from 'remark-slug';
 import remarkPrism from 'remark-prism';
 import headings from 'remark-autolink-headings';
 
-
 export function convertMdToHtml(markdownString: string): any {
     return new Promise(async(resolve, reject) => {
         return remark()
@@ -15,7 +14,7 @@ export function convertMdToHtml(markdownString: string): any {
           .use(slug)
           // Note that this module must be included after `remark-slug`.
           .use(headings)
-          .use(remarkPrism)
+          .use(remarkPrism as any)
           .use(html)
           .data('var', markdownString)
           .process(markdownString, (err, file) => {
