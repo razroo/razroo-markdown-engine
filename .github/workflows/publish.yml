@@ -5,6 +5,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -13,14 +16,17 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc    
       - name: Setup Node
         uses: actions/setup-node@v3
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GitHubToken }}
         with:
           node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: https://npm.pkg.github.com
+          scope: '@razroo'
       - name: Install dependencies and build 🔧
         run: |
-          npm install && npm run build
+          npm ci && npm run build
       - name: Publish package on NPM 📦
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GitHubToken }}
