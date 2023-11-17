@@ -10,8 +10,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Set GitHub token
         run: |
-          echo "{ \"Parameters\": { \"GITHUBTOKEN\": \"${{ secrets.GITHUBTOKEN }}\" }}" >> .env.json
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUBTOKEN }}" >> ~/.npmrc        
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc    
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
