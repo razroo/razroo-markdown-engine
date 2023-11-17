@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Set GitHub token
         run: |
-          echo "{ \"Parameters\": { \"GITHUBTOKEN\": \"${{ secrets.GitHubToken }}\" }}" >> .env.json
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc        
+          echo "{ \"Parameters\": { \"GITHUBTOKEN\": \"${{ secrets.GITHUBTOKEN }}\" }}" >> .env.json
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUBTOKEN }}" >> ~/.npmrc        
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -24,3 +24,4 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
