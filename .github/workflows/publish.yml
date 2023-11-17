@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-          registry-url: 'npm.pkg.github.com'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc      
