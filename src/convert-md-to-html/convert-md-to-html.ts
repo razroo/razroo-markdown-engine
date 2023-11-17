@@ -1,10 +1,10 @@
-import remark = require("remark");
-const variables = require('remark-variables');
-import html = require('remark-html');
+import remark from "remark";
+import variables from 'remark-variables';
+import html from 'remark-html';
 import removeTitleTagsPlugin from '@razroo/razroo-remark-netlify';
-const slug = require('remark-slug');
-const remarkPrism = require('remark-prism');
-const headings = require('remark-autolink-headings');
+import slug from 'remark-slug';
+import remarkPrism from 'remark-prism';
+import headings from 'remark-autolink-headings';
 
 
 export function convertMdToHtml(markdownString: string): any {
