@@ -9,7 +9,12 @@
     "declaration": true,
     "declarationMap": true,
     "types": ["node", "jest"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "remark-autolink-headings": ["./src/types/remark-autolink-headings.d.ts"],
+      "remark-slug": ["./src/types/remark-slug.d.ts"],
+      "remark-variables": ["./src/types/remark-variables.d.ts"]
+    }
   },
   "files": ["./src/index.ts"]
 }
