@@ -1,6 +1,6 @@
 {
   "name": "@razroo/razroo-markdown-engine",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
   "repository": {
