@@ -11,7 +11,7 @@
     "registry": "https://npm.pkg.github.com/razroo"
   },
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --runInBand --config jest.config.js",
     "build": "tsc",
     "watch": "tsc -w",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
