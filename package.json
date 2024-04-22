@@ -1,14 +1,11 @@
 {
   "name": "@razroo/razroo-markdown-engine",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/razroo/razroo-markdown-engine.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/razroo"
   },
   "scripts": {
     "test": "jest --runInBand --config jest.config.js",
@@ -28,8 +25,8 @@
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
   "dependencies": {
-    "@razroo/razroo-remark-embed-code": "1.0.2",
-    "@razroo/razroo-remark-netlify": "1.2.0",
+    "@razroo/razroo-remark-embed-code": "^2.0.1",
+    "@razroo/razroo-remark-netlify": "1.2.3",
     "dotenv": "8.2.0",
     "micromatch": "4.0.2",
     "remark": "11.0.0",
