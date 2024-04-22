@@ -24,6 +24,9 @@
   ],
   "author": "Charlie Greenman <charlie@razroo.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@razroo/razroo-remark-embed-code": "^2.0.1",
     "@razroo/razroo-remark-netlify": "1.2.3",
